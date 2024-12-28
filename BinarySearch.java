@@ -6,7 +6,6 @@ This class contains every implementation and application for binary search
 => In some case, array can contain a lot of target inside. We can try to find left most, and right most, or maybe the middle
 2. leftMostBinarySearch
 3. rightMostBinarySearch
-4. middleBinarySearch
 
  */
 public class BinarySearch {
@@ -63,5 +62,19 @@ public class BinarySearch {
         }
         return res;
     }
+
+    public static int findLowerBound(int[] arr, int target) {
+        int left = 0, right = arr.length;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid; // Target can be at mid or earlier
+            }
+        }
+        return left; // Points to the first position >= target
+    }
+
 
 }

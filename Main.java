@@ -8,5 +8,6 @@ public class Main {
         System.out.println(binarySearch.leftMostBinarySearch(arr,4));
         System.out.print("Right most position for target is: ");
         System.out.println(binarySearch.rightMostBinarySearch(arr,4));
+        System.out.println(new FindPerfectSquare().countPerfectSquare(9, 24));
     }
 }
