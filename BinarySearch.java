@@ -9,6 +9,7 @@ This class contains every implementation and application for binary search
 
  */
 public class BinarySearch {
+
     // return left here is because after the loop, left > right.
     public int binarySearchInsertionPosition(int[] arr, int target) {
         int left = 0;
@@ -67,10 +68,23 @@ public class BinarySearch {
         int left = 0, right = arr.length;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            if (arr[mid] < target) {
+            if (arr[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left; // Points to the first position >= target
+    }
+
+    public static int findUpperBound(int[] arr, int target) {
+        int left = 0, right = arr.length;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] <= target) {
                 left = mid + 1;
             } else {
-                right = mid; // Target can be at mid or earlier
+                right = mid;
             }
         }
         return left; // Points to the first position >= target
